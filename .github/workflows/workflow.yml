@@ -1,0 +1,20 @@
+on:
+
+    push:
+      branches:
+        - master
+jobs:
+    build:
+      runs-on: ubuntu-latest
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID}}
+        CLIENT_SECRET: ${{ secrets.CLIENT_SECRET}}
+        CALLBACK_URL: ${{ secrets.CALLBACK_URL}}
+      steps:
+        - name: Use secret
+          run: | 
+           echo $DISCORD_TOKEN
+           echo $CLIENT_ID
+           echo $CLIENT_SECRET
+           echo $CALLBACK_URL

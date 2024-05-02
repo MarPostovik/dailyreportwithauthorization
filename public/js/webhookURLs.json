@@ -1,0 +1,55 @@
+[
+      {
+        "name": "Web department",
+        "webhook": "https://discord.com/api/webhooks/1227299910970249429/KPJ-NfB2aqT53rlifmw4e9z7nwEV-HwHRWANNc-olwhiDuyhjtZjmE5BgB7eUZAwnGut"
+      },
+      {
+        "name": "Python department", 
+        "webhook": "https://discord.com/api/webhooks/1232760329155379310/S6Rz_iTQBJVMBH19b46QCpmhPTPI9kc_8-ZoKqFKnsYegVZx_VaoMLuXVn9o2v5iVqG1"
+      },
+      {
+        "name": "Game-design-engineering",
+        "webhook": "https://discord.com/api/webhooks/1232760695293083678/gTcpWRU2Rsu6k2o0F3tZKPGaaAuyQ4w8PxgDJabPxmKscKvE2lu6ppJnynUf0n0GmyLd"
+      },
+      {
+        "name": "Project manager department",
+        "webhook": "https://discord.com/api/webhooks/1232762699620810772/2MUA_dgW_AnqsfdwBCvni0RU2axfta6HVOgxqCO22YcTvdSjuJRb_bIlx_85_dAuX87z"
+      },
+      {
+        "name": "Sound design department",
+        "webhook": "https://discord.com/api/webhooks/1232761531406618684/qrMeVvAhX1uk4Ylb_X_9-iuSQ7lbEjO5dHtFdIJc096GC8MzCevVf-0nUx-BV2-hIjys"
+      },
+      {
+        "name": "Narrative Design department",
+        "webhook": "https://discord.com/api/webhooks/1232762246120210544/83kUbX2EzQIc-NmTfMyjDMGbBCWGNHUf5FQZ_5REKMSH0ppm0UAYXUJFo4wmpementIT"
+      },
+      {
+        "name": "QA department",
+        "webhook": "https://discord.com/api/webhooks/1232762909503783023/E9jrZUPeBUVTtVgmSEQgiStD1IwxCfxnCClQLN8rEAcgTszS4yU7satk43mySuZ4GuCB"
+      },
+      {
+        "name": "Art department",
+        "webhook": "https://discord.com/api/webhooks/1232761010067210443/GqK4e6xS5jp9uUx7TNCrhICm7FSZ0Vlv9HMTes5xh5ajNGi9ifVb6qn09oCNfxbliIuR"
+      },
+      {
+        "name": "Marketing department",
+        "webhook": "https://discord.com/api/webhooks/1232763190820077729/eGYItQ4mCKIAcXEAWHXGmle7TNOYnf4CIcQq_sCyWLaSkjypSIJHB8JA3_MB5xJHrqK-"
+      },
+      {
+        "name": "Game producer department",
+        "webhook": "https://discord.com/api/webhooks/1232763831017672714/ybmyvmF5LlHZuLxdntc1DTyUpt4u6g2mF7ZP9s-nHyalTo5m6UWMxxEvjYtks-uKFzD8"
+      },
+      {
+        "name": "Business analyst department",
+        "webhook": "https://discord.com/api/webhooks/1232763995773997056/fKeqkkHiD6aMOXbRCuy-slM5zYkHSj6fBMoixcaOF4S2cUJS3ND99Z59dRSIN0_YzsG_"
+      },
+      {
+        "name": "HR department",
+        "webhook": "https://discord.com/api/webhooks/1232763611374686290/K-jEtWC-sKuoFRxF5f19eFWmarASEODkbpULTjyoZpdDpg3tJGqR6X_51plSe1-24p5B"
+      },
+      {
+        "name": "UI/UX  design department",
+        "webhook": "https://discord.com/api/webhooks/1232762499141730344/ASsiLXd5xu3rBkrL-6g_w-1x-iEZFzW6TWaePLD-FZ_r6dtqZtFBaAP-AHCScsITUA5o"
+      }
+]
+  

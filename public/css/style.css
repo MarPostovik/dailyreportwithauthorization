@@ -1,0 +1,164 @@
+body{
+    background-color: rgb(49 51 56);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+}
+li{
+    list-style-type: none;
+}
+a{
+    color: #fff;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+.tasks__item{
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0;
+    color: black;
+    padding: 20px;
+}
+textarea{
+    display: block;
+    margin: 20px 0;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.report__meeting{
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    color: #000;
+}
+.report__meetings{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+button{
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin-top: 12px;
+    border: none;
+}
+.btn-primary{
+    background: rgb(88, 101, 242);
+    padding: 10px;
+}
+
+.btn-secondary{
+    background: #6c757d;
+    padding: 10px;
+}
+
+.btn-danger{
+    background: #dc3545;
+    padding: 12px 16px;
+    font-size: 18px;
+}
+
+textarea#blockers{
+    border-radius: 10px;
+}
+.input{
+    margin-bottom: 20px;
+    padding: 5px;
+}
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* CSS for uploaded photos */
+.uploaded-photo {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* CSS for photo containers */
+.photo-container {
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.task-link a{
+    color: #5e5ee9;
+}
+
+.add-link-btn{
+    background: #5e5ee9;
+    padding: 5px;
+    margin-top: 0;
+}
+.task-links{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px;
+}
+.save-btn{
+    background: #424649;
+    padding: 4px;
+}
+select{
+    margin: 10px;
+    padding: 6px;
+}
+
+.popup{
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s, opacity .3s ease;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .popup_active{
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .popup__container{
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255);
+    padding-top: 42px;
+    border-radius: 5px;
+    box-shadow: 0px 7px 15px 0px rgba(0, 1, 1, 0.15);
+    overflow: hidden;
+    color: #000;
+  }
+
+  .btn-success{
+    background-color: #95d298;
+    padding: 12px;
+    margin-bottom: 12px;
+  }

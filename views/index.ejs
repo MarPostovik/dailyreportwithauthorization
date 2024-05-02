@@ -1,0 +1,136 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Discord Webhook</title>
+</head>
+<body>
+  <form class="report">
+      <h1>Daily report</h1>
+      <h2 id="employee"><%= user.global_name %></h2>
+      <h2 id="employeesUsername" style="display: none;"><%= user.username %></h2>
+      <h2 id="department"></h2>
+      <label for="date">📅 Date: </label>
+      <input type="date" id="today-date" class="input">
+      <div class="report__wrapper">
+        <h2>✅What I did yesterday:</h2>
+        <label for="yesterday-date">Date:</label>
+        <input type="date" id="yesterday-date" class="input"> <span>(If the date is actually yesterday date, just don't select it)</span>
+        <ul id="yesterdayTasks" class="tasks">
+            <li class="tasks__item">
+                <div>
+                    <textarea name="" class="task-description" cols="40" rows="5">Task 1 description</textarea>
+                </div>
+                <button class="add-link-btn" onclick="addLink(this)" type="button">Add Link</button>
+                <div class="link-inputs" style="display: none;">
+                    <input type="text" placeholder="Link description" class="link-description">
+                    <input type="url" placeholder="Link URL" class="link-url">
+                    <button onclick="saveLink(this)" type="button" class="save-btn">Save</button>
+                </div>
+                <div class="task-links"></div>
+                <label for="task-deadline">Deadline:</label> <input type="date" class="task-deadline">
+                <p>Priority:</p>
+                <div class="priority">
+                    <input type="radio" name="priority-yesterdayTasks-1" value="High🔴"/>
+                    <label>High🔴</label><br>
+                    <input type="radio" name="priority-yesterdayTasks-1" value="Medium🟡" checked />
+                    <label>Medium🟡</label><br>
+                    <input type="radio" name="priority-yesterdayTasks-1" value="Low🟢" />
+                    <label>Low🟢</label><br>
+                </div>
+            </li>
+        </ul>
+        <button type="button" onclick="addTask('yesterdayTasks')" class="btn-primary">Add Task</button>
+        <button type="button" onclick="removeLastTask('yesterdayTasks')" class="btn-secondary">Remove Last Task</button>
+        <ul id="yesterdayMeetings" class="report__meetings">
+            <h3>👥Met with:</h3>
+            <li class="report__meeting">
+                <label for="meeting-person">Name and Position / Team</label>
+                <input type="text" class="meeting-person" placeholder="Attendee 1"> 
+                <label for="meeting-cst">Time CST:</label>
+                <input type="time" class="meeting-cst">
+                <label for="meeting-eet">Time EET:</label>
+                <input type="time" class="meeting-eet">
+                <textarea name="" class="meeting-brief" cols="40" rows="3">Meeting 1 brief</textarea>
+                <button class="add-link-btn" onclick="addLink(this)" type="button">Add Link</button>
+                <div class="link-inputs" style="display: none;">
+                    <input type="text" placeholder="Link description" class="link-description">
+                    <input type="url" placeholder="Link URL" class="link-url">
+                    <button onclick="saveLink(this)" type="button" class="save-btn">Save</button>
+                </div>
+                <div class="task-links"></div>
+            </li>
+        </ul>
+        <button type="button" onclick="addMeeting('yesterdayMeetings')" class="btn-primary">Add Meeting</button>
+        <button type="button" onclick="removeLastMeeting('yesterdayMeetings')" class="btn-secondary">Remove Last Meeting</button>
+      </div>
+      <div class="report__wrapper">
+        <h2>📌What I will do today:</h2>
+        <ul id="todayTasks" class="tasks">
+            <li class="tasks__item">
+                <div>
+                    <textarea name="" class="task-description" cols="40" rows="5">Task 1 description</textarea>
+                </div>
+                <button class="add-link-btn" onclick="addLink(this)" type="button">Add Link</button>
+                <div class="link-inputs" style="display: none;">
+                    <input type="text" placeholder="Link description" class="link-description">
+                    <input type="url" placeholder="Link URL" class="link-url">
+                    <button onclick="saveLink(this)" type="button" class="save-btn">Save</button>
+                </div>
+                <div class="task-links"></div>
+                <label for="task-deadline">Deadline:</label> <input type="date" class="task-deadline">
+                <p>Priority:</p>
+                <div class="priority">
+                    <input type="radio" name="priority-todayTasks-1" value="High🔴" checked />
+                    <label>High🔴</label><br>
+                    <input type="radio" name="priority-todayTasks-1" value="Medium🟡" />
+                    <label>Medium🟡</label><br>
+                    <input type="radio" name="priority-todayTasks-1" value="Low🟢" />
+                    <label>Low🟢</label><br>
+                </div>
+            </li>
+        </ul>
+        <button type="button" onclick="addTask('todayTasks')" class="btn-primary">Add Task</button>
+        <button type="button" onclick="removeLastTask('todayTasks')" class="btn-secondary">Remove Last Task</button>
+        <ul id="todayMeetings" class="report__meetings">
+            <h3>👥Meeting with:</h3>
+            <li class="report__meeting">
+                <label for="meeting-person">Name and Position / Team</label>
+                <input type="text" class="meeting-person" placeholder="Mentor Caleb"> 
+                <label for="meeting-cst">Time CST:</label>
+                <input type="time" class="meeting-cst">
+                <label for="meeting-eet">Time EET:</label>
+                <input type="time" class="meeting-eet">
+            </li>
+        </ul>
+        <button type="button" onclick="addMeeting('todayMeetings')" class="btn-primary">Add Meeting</button>
+        <button type="button" onclick="removeLastMeeting('todayMeetings')" class="btn-secondary">Remove Last Meeting</button>
+
+      </div>
+      <div class="media">
+        <h3>Upload Photos (optional):</h3>
+        <input type="file" id="photos" name="photos" accept="image/*" style="display: none;">
+        <div id="photoList" class="photo-list"></div>
+        <button type="button" id="addPhotoBtn" class="btn-primary">Add Photo</button>
+        <button type="button" id="removePhotoBtn" style="display: none;" class="btn-secondary">Remove Last Photo</button>
+    </div>
+    
+      <div class="blockers">
+        <h3>⛔️Blockers:</h3>
+        <textarea name="" id="blockers" cols="40" rows="5">None</textarea>
+      </div>
+      <a href="https://docs.google.com/document/d/11sqd6GyqTMoch-a5z6dAFRVII0nmgxj_m1EeZ2yNVQY/edit#heading=h.ac36khbgswt8" target="_blank">Documentation on daily reports</a>
+  </form>
+  <button onclick="sendMessage()" class="btn-danger">Send</button>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__title">Your report was successfully sent</h2>
+      <button class="button btn-success" type="button" id="close-modal-btn">Ok</button>
+    </div>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+</html>
+
