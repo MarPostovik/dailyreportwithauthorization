@@ -55,7 +55,6 @@ app.get('/index.html', (req, res) => {
 app.get('/auth/discord/callback',
     passport.authenticate('discord', { failureRedirect: '/' }),
     function(req, res) {
-        console.log(req.user); 
         res.redirect('/index'); // Перенаправлення на index.html після успішної авторизації
     }
 );
@@ -100,5 +99,5 @@ app.use(express.static(path.join(__dirname, 'public'), {
 }));
 
 app.listen(port, () => {
-    console.log(`Сервер запущено на http://localhost:${port}`);
+    console.log(`Сервер запущено`);
 });
