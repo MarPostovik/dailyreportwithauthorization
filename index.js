@@ -40,46 +40,16 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
     done(null, obj);
 });
-
-app.get('/', (req, res) => {
-    res.send('Для авторизації перейдіть за <a href="/auth/discord">посиланням</a>');
-});
-// Роут для авторизації Discord
-app.get('/auth/discord', passport.authenticate('discord'));
-
-app.get('/index.html', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
- });
-
-// Роут для обробки колбеку після авторизації
-app.get('/auth/discord/callback',
-    passport.authenticate('discord', { failureRedirect: '/' }),
-    function(req, res) {
-        res.redirect('/index'); // Перенаправлення на index.html після успішної авторизації
-    }
-);
-
 // Налаштування шаблонізатора EJS
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
-// Рендерінг сторінки index.html та передача даних про користувача на сторінку
-app.get('/index', (req, res) => {
-    // Перевірка чи користувач авторизований
-    if (!req.isAuthenticated()) {
-        res.redirect('/'); // Перенаправлення на головну сторінку, якщо користувач не авторизований
-    } else {
-        // Рендерінг сторінки index.html та передача даних про користувача на сторінку
-        res.render('index', { user: req.user });
-    }
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 const mimeTypes = {
     '.html': 'text/html',
     '.css': 'text/css',
     '.js': 'application/javascript',
     '.json': 'application/json',
-    // Додайте інші типи MIME, які ви використовуєте
 };
 
 app.get('/employees.json', (req, res) => {
@@ -97,6 +67,34 @@ app.use(express.static(path.join(__dirname, 'public'), {
         }
     },
 }));
+app.get('/', (req, res) => {
+    res.render('home');
+    // res.send('Для авторизації перейдіть за <a href="/auth/discord">посиланням</a>');
+});
+// Роут для авторизації Discord
+app.get('/auth/discord', passport.authenticate('discord'));
+
+
+// Роут для обробки колбеку після авторизації
+app.get('/auth/discord/callback',
+    passport.authenticate('discord', { failureRedirect: '/' }),
+    function(req, res) {
+        res.redirect('/index'); // Перенаправлення на index.html після успішної авторизації
+    }
+);
+
+
+// Рендерінг сторінки index.html та передача даних про користувача на сторінку
+app.get('/index', (req, res) => {
+    // Перевірка чи користувач авторизований
+    if (!req.isAuthenticated()) {
+        res.redirect('/'); // Перенаправлення на головну сторінку, якщо користувач не авторизований
+    } else {
+        // Рендерінг сторінки index.html та передача даних про користувача на сторінку
+        res.render('index', { user: req.user });
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Сервер запущено`);
