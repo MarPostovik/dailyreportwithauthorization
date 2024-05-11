@@ -69,7 +69,7 @@ function addTask(taskContainerId) {
         <div class="link-inputs" style="display: none;">
             <input type="text" placeholder="Link description" class="link-description">
             <input type="url" placeholder="Link URL" class="link-url">
-            <button onclick="saveLink(this)" type="button">Save</button>
+            <button onclick="saveLink(this)" type="button" class="save-btn">Save</button>
         </div>
         <div class="task-links"></div>
         <label for="task-deadline">Deadline:</label> <input type="date" class="task-deadline">
@@ -108,7 +108,7 @@ function addMeeting(meetingContainerId) {
             <div class="link-inputs" style="display: none;">
                 <input type="text" placeholder="Link description" class="link-description">
                 <input type="url" placeholder="Link URL" class="link-url">
-                <button onclick="saveLink(this)" type="button">Save</button>
+                <button onclick="saveLink(this)" type="button" class="save-btn">Save</button>
             </div>
             <div class="task-links"></div>
         ` : ''}
@@ -171,7 +171,12 @@ function getTasksInfo(taskContainerId) {
 function getMeetingsInfo(meetingContainerId) {
     const meetingContainer = document.getElementById(meetingContainerId);
     const meetingItems = meetingContainer.querySelectorAll('.report__meeting');
-    let meetingsInfo = '';
+    let meetingsInfo;
+    if (meetingContainerId === 'yesterdayMeetings') {
+        meetingsInfo = "👥Met with:\n\n" 
+    } else{
+        meetingsInfo = "👥Meeting with:\n\n" 
+    }
     meetingItems.forEach((meeting, index) => {
         const attendeeName = meeting.querySelector('.meeting-person').value || `Attendee ${index + 1}`;
         const meetingCST = meeting.querySelector('.meeting-cst').value || '';
@@ -340,7 +345,7 @@ async function sendMessage() {
     }
     const payload = {
         username: `${name}`,
-        content: `📅 Date: ${ReportDate} \n\n✅What I did yesterday ${YesterdayDate}:\n\n${getTasksInfo('yesterdayTasks')}👥Met with: \n${getMeetingsInfo('yesterdayMeetings')}📌What I will do today:\n\n${getTasksInfo('todayTasks')}👥Meeting with:\n${getMeetingsInfo('todayMeetings')}\n⛔️Blockers: ${blockers}\n[Documentation on daily reports](https://docs.google.com/document/d/11sqd6GyqTMoch-a5z6dAFRVII0nmgxj_m1EeZ2yNVQY/edit#heading=h.ac36khbgswt8)`,
+        content: `📅 Date: ${ReportDate} \n\n✅What I did yesterday ${YesterdayDate}:\n\n${getTasksInfo('yesterdayTasks')}${getMeetingsInfo('yesterdayMeetings')}📌What I will do today:\n\n${getTasksInfo('todayTasks')}${getMeetingsInfo('todayMeetings')}\n⛔️Blockers: ${blockers}\n[Documentation on daily reports](https://docs.google.com/document/d/11sqd6GyqTMoch-a5z6dAFRVII0nmgxj_m1EeZ2yNVQY/edit#heading=h.ac36khbgswt8)`,
     };
     formData.append('payload_json', JSON.stringify(payload)); // Append payload as JSON
     try {
@@ -379,7 +384,8 @@ function saveLink(button) {
         const taskOrMeetingItem = linkInputs.nextSibling.nextElementSibling;
         const linkContainer = document.createElement('div');
         linkContainer.classList.add('task-link'); // Adjust this class name if needed
-        linkContainer.innerHTML = `<a href="${linkUrl}" target="_blank">${linkDescription}</a>`;
+        linkContainer.innerHTML = `<a href="${linkUrl}" target="_blank">${linkDescription}</a>
+                                   <button type="button" class="removeLinkButton" onclick="removeLink()">Remove this link</button>`;
         taskOrMeetingItem.appendChild(linkContainer);
 
         // Clear input fields and hide link inputs
@@ -390,6 +396,13 @@ function saveLink(button) {
         alert('Please enter both link description and URL.');
     }
 }
+function removeLink(){
+    let links = document.querySelectorAll('.task-link')
+    for (let i = 0; i < links.length; i++) {
+       links[i].innerHTML = '';
+       
+    }
+   }
 
 // const webhookUrl = "https://discord.com/api/webhooks/1228352371961368597/KRc9w1rJcpHujyHJn9y95Q0Es0TNOrwnKGfHJklKcu8fDp8EYZnR2-wVF6aWePptCh52";
 // const webhookUrl = "https://discord.com/api/webhooks/1227299910970249429/KPJ-NfB2aqT53rlifmw4e9z7nwEV-HwHRWANNc-olwhiDuyhjtZjmE5BgB7eUZAwnGut"; my server

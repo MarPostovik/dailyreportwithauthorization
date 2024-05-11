@@ -112,7 +112,7 @@ textarea#blockers{
     gap: 6px;
     padding: 6px;
 }
-.save-btn{
+.save-btn, .removeLinkButton{
     background: #424649;
     padding: 4px;
 }
@@ -142,6 +142,7 @@ select{
     opacity: 1;
     pointer-events: all;
   }
+  
   .popup__container{
     max-width: 400px;
     width: 100%;

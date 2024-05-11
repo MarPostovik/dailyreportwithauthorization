@@ -12,7 +12,7 @@
       <h2 id="employee"><%= user.global_name %></h2>
       <h2 id="employeesUsername" style="display: none;"><%= user.username %></h2>
       <h2 id="department"></h2>
-      <label for="toda-date">📅 Date: </label>
+      <label for="today-date">📅 Date: </label>
       <input type="date" id="today-date" class="input">
       <div class="report__wrapper">
         <h2>✅What I did yesterday:</h2>
@@ -98,7 +98,7 @@
             <h3>👥Meeting with:</h3>
             <li class="report__meeting">
                 <label for="meeting-person">Name and Position / Team</label>
-                <input type="text" class="meeting-person" placeholder="Attendee 1"> 
+                <input type="text" class="meeting-person" placeholder="Mentor Caleb"> 
                 <label for="meeting-cst">Time CST:</label>
                 <input type="time" class="meeting-cst">
                 <label for="meeting-eet">Time EET:</label>
@@ -107,7 +107,6 @@
         </ul>
         <button type="button" onclick="addMeeting('todayMeetings')" class="btn-primary">Add Meeting</button>
         <button type="button" onclick="removeLastMeeting('todayMeetings')" class="btn-secondary">Remove Last Meeting</button>
-
       </div>
       <div class="media">
         <h3>Upload Photos (optional):</h3>
