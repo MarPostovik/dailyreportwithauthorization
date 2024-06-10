@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.page {
+    padding: 40px 80px;
+}
+.logo {
+    width: 305px;
+}
+.title{
+    font-family: Poppins;
+    font-size: 120px;
+    font-weight: 900;
+    line-height: 180px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    margin: 175px 0 100px;
+}
+.title_color_red{
+    color: rgba(193, 1, 5, 1);
+    text-align: left;
+    position: relative;
+}
+.title_color_red::after{
+    content: '';
+    background-color: rgba(193, 1, 5, 1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 70px;
+    left: 856px;
+}
+.title_color_black{
+    color: rgba(18, 18, 25, 1);
+    text-align: right;
+}
+.link{
+    background: rgba(193, 1, 5, 1);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 20px 56px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    font-family: Raleway;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28px;
+    border-radius: 4px;
+    transition: all 0.3s ease-out;
+}
+.link:hover {
+    opacity: 0.8;
+}
+@media screen and (max-width: 1440px) {
+    .page {
+        padding: 32px;
+    }
+    .logo{
+        width: 279px;
+    }
+    .title{
+        font-size: 100px;
+        line-height: 150px;
+        margin: 237px 0 160px;
+    }
+    .title_color_red::after{
+        left: 711px;
+        top: 59px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media screen and (max-width: 834px) {
+    .page {
+        padding: 24px 16px;
+    }
+    .logo{
+        width: 192px;
+    }
+    .title {
+        font-size: 43px;
+        line-height: 64.5px;
+    }
+    .title_color_red::after{
+        top: 25.5px;
+        left: 305px;
+        width: 14px;
+        height: 14px;
+    }
+    .link{
+        font-size: 14px;
+        padding: 14px 47.5px;
+    }
+}
